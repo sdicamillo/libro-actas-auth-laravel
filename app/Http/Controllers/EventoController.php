@@ -35,15 +35,11 @@ class EventoController extends Controller
         return redirect()->route('eventos.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //permite visualizar un evento por separado
     public function show($id)
     {
-        //
+        $evento = Evento::find($id);
+        return view('eventos.show', compact('evento'));
     }
 
     /**
