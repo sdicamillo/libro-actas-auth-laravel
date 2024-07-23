@@ -42,27 +42,31 @@ class EventoController extends Controller
         return view('eventos.show', compact('evento'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //muestra la vista con los campos recuperados de la base de datos para edita un evento 
     public function edit($id)
     {
-        //
+        $evento = Evento::find($id);
+        return view('eventos.edit', compact('evento'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    //actualiza en la base de datos un evento
+    public function update(StoreEventRequest $request, $id)
     {
-        //
+        $evento = Evento::find($id);
+
+        // Guardo la información ya validada
+        $data = $request->all();
+
+        $evento->nombre = $data['nombre'];
+        $evento->apellido = $data['apellido'];
+        $evento->descripcion = $data['descripcion'];
+        $evento->fecha = $data['fecha'];
+        $evento->hora = $data['hora'];
+
+        // Actualizo el evento en la base de datos
+        $evento->update();
+
+        return redirect()->route('eventos.index');
     }
 
     /**
