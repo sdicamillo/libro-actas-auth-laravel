@@ -38,6 +38,8 @@ class StoreEventRequest extends Request
         return [
             'user_id.required' => 'El usuario es obligatorio.',
             'user_id.exists' => 'El usuario especificado no existe.',
+            'nombre.required' => 'El nombre es obligatorio.',
+            'apellido.required' => 'El apellido es obligatorio.',
             'descripcion.required' => 'La descripción es obligatoria.',
             'fecha.required' => 'La fecha es obligatoria.',
             'hora.required' => 'La hora es obligatoria.',
