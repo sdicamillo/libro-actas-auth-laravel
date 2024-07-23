@@ -36,7 +36,7 @@
     </div>
 
     <a href="{{ route('eventos.edit', $evento->id) }}" class="btn btn-warning">Editar</a>
-    <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST" style="display:inline">
+    <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST" style="display:inline" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         {{ method_field('DELETE') }}
         <button type="submit" class="btn btn-danger">Borrar</button>

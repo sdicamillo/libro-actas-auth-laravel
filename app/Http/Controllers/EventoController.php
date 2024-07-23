@@ -9,20 +9,20 @@ use App\Evento;
 
 class EventoController extends Controller
 {
-    //muestra todos los eventos registrados
+    // Muestra todos los eventos registrados
     public function index()
     {
         $eventos = Evento::all();
         return view('eventos.index', compact('eventos'));
     }
 
-    //muestra la vista para registrar un nuevo evento 
+    // Muestra la vista para registrar un nuevo evento 
     public function create()
     {
         return view('eventos.create');
     }
 
-    //guarda en la base de datos un nuevo evento
+    // Guarda en la base de datos un nuevo evento
     public function store(StoreEventRequest $request)
     {
         // Guardo la información ya validada
@@ -35,23 +35,24 @@ class EventoController extends Controller
         return redirect()->route('eventos.index');
     }
 
-    //permite visualizar un evento por separado
+    // Permite visualizar un evento por separado
     public function show($id)
     {
         $evento = Evento::find($id);
         return view('eventos.show', compact('evento'));
     }
 
-    //muestra la vista con los campos recuperados de la base de datos para edita un evento 
+    // Muestra la vista con los campos recuperados de la base de datos para edita un evento 
     public function edit($id)
     {
         $evento = Evento::find($id);
         return view('eventos.edit', compact('evento'));
     }
 
-    //actualiza en la base de datos un evento
+    // Actualiza en la base de datos un evento
     public function update(StoreEventRequest $request, $id)
     {
+        // Busco el elemento editado para luego actualizarlo con los nuevos datos
         $evento = Evento::find($id);
 
         // Guardo la información ya validada
@@ -69,14 +70,12 @@ class EventoController extends Controller
         return redirect()->route('eventos.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // Elimina un evento de la base de datos
     public function destroy($id)
     {
-        //
+        $evento = Evento::find($id);
+        $evento->delete();
+
+        return redirect()->route('eventos.index');
     }
 }
