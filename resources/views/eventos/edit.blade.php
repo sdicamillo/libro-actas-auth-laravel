@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Editar evento</h1>
+    <h1 class="mt-3">Editar evento</h1>
     
     
     <form action="{{ route('eventos.update', $evento->id) }}" method="POST">
@@ -53,7 +53,7 @@
             <input type="time" name="hora" id="hora" class="form-control" value="{{ $evento->hora }}">
         </div>
 
-        <button type="submit" class="btn btn-primary">Editar</button>
+        <button type="submit" class="btn btn-primary mt-3 float-end">Editar</button>
 
     </form>
 

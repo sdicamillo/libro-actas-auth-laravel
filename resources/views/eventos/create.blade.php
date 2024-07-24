@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Crear evento</h1>
+    <h1 class="my-3">Crear evento</h1>
 
     <form action="{{ route('eventos.store') }}" method="POST">
         <!-- Muestra errores en caso de que existan -->
@@ -51,7 +51,7 @@
                 <input type="time" name="hora" id="hora" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary">Crear</button>
+            <button type="submit" class="btn btn-primary mt-3 float-end">Crear</button>
     </form>
 
 @endsection

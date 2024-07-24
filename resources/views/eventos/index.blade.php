@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('datatables-css')
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/v/bs5/jq-3.7.0/jszip-3.10.1/dt-2.1.2/b-3.1.0/b-html5-3.1.0/datatables.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
-    <div class="d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center justify-content-between my-3">
         <h1>Libro de actas</h1>
         <a href="{{ route('eventos.create') }}" class="btn btn-primary">Crear evento</a>
     </div>
@@ -110,7 +109,6 @@
                 "sInfo":           "Mostrando del _START_ al _END_ de un total de _TOTAL_ resultados",
                 "sInfoEmpty":      "Mostrando del 0 al 0 de un total de 0 resutaldos",
                 "sSearch":         "Buscar:",
-                
             }, 
 
             layout: {

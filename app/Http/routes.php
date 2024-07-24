@@ -11,13 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'EventoController@index');
 
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
 
 //Debe estar logueado para ver los eventos de libro de acta
 Route::group(['middleware' => 'auth'], function() {

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Ver evento</h1>
+    <h1 class="mt-3">Ver evento</h1>
 
     <!-- El usuario que está loggeado se carga por defecto -->
     <div class="form-group">
@@ -35,11 +35,13 @@
         <input type="time" name="hora" id="hora" class="form-control" value="{{ $evento->hora }}" readonly>
     </div>
 
-    <a href="{{ route('eventos.edit', $evento->id) }}" class="btn btn-warning">Editar</a>
-    <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST" style="display:inline" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        {{ method_field('DELETE') }}
-        <button type="submit" class="btn btn-danger">Borrar</button>
-    </form>
+    <div class="float-end mt-3">
+        <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST" style="display:inline" onclick="return confirm('¿Seguro que deseas eliminarlo?')">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {{ method_field('DELETE') }}
+            <button type="submit" class="btn btn-danger">Borrar</button>
+        </form>
+        <a href="{{ route('eventos.edit', $evento->id) }}" class="btn btn-warning">Editar</a>
+    </div>
 
 @endsection
