@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'EventoController@index');
+Route::get('/', 'EventoController@index')->middleware('auth');
 
 Route::auth();
 
